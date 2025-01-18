@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class=reftest-wait>
-<title>Shared transitions: shared element writing-modes</title>
-<link rel="help" href="https://github.com/WICG/view-transitions">
+<title>View transitions: shared element writing-modes</title>
+<link rel="help" href="https://drafts.csswg.org/css-view-transitions-1/">
 <link rel="author" href="mailto:vmpstr@chromium.org">
 <link rel="match" href="new-content-element-writing-modes-ref.html">
 <script src="/common/reftest-wait.js"></script>
@@ -26,9 +26,6 @@
   background: green;
   contain: paint;
   border: 1px solid black;
-}
-.source {
-  contain: layout;
 }
 #target {
   background: red;
@@ -70,6 +67,8 @@ html::view-transition { background: lightpink; }
 <div id=three class="rl shared">T</div>
 
 <script>
+failIfNot(document.startViewTransition, "Missing document.startViewTransition");
+
 async function runTest() {
   s1.style = "view-transition-name: s1";
   s2.style = "view-transition-name: s2";

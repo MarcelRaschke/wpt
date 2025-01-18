@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <meta name="timeout" content="long">
-<html class=reftest-wait>
-<title>Shared transitions: CSS Animations are paused while render-blocked</title>
-<link rel="help" href="https://github.com/WICG/view-transitions">
+<html>
+<title>View transitions: CSS Animations are paused while render-blocked</title>
+<link rel="help" href="https://drafts.csswg.org/css-view-transitions-1/">
 <link rel="author" href="mailto:khushalsagar@chromium.org">
 
 <script src="/resources/testharness.js"></script>
@@ -34,6 +34,7 @@ div {
 let renderBlocked = true;
 
 promise_test(() => {
+  assert_implements(document.startViewTransition, "Missing document.startViewTransition");
   return new Promise(async (resolve, reject) => {
     requestAnimationFrame(() => {
       document.startViewTransition(() => {

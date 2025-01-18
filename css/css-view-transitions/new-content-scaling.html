@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class=reftest-wait>
-<title>Shared transitions: display content in a pseudo with proper scaling</title>
-<link rel="help" href="https://github.com/WICG/view-transitions">
+<title>View transitions: display content in a pseudo with proper scaling</title>
+<link rel="help" href="https://drafts.csswg.org/css-view-transitions-1/">
 <link rel="author" href="mailto:vmpstr@chromium.org">
 <link rel="match" href="new-content-scaling-ref.html">
-<meta name="fuzzy" content="new-content-scaling-ref.html:maxDifference=0-16;totalPixels=0-400">
+<meta name="fuzzy" content="maxDifference=0-16; totalPixels=0-400">
 <script src="/common/reftest-wait.js"></script>
 <style>
 .shared {
@@ -49,6 +49,8 @@ html::view-transition { background: lightpink; }
 <div id=target class="shared src"><div class=inner></div></div>
 
 <script>
+failIfNot(document.startViewTransition, "Missing document.startViewTransition");
+
 async function runTest() {
   let t = document.startViewTransition(() => {
     target.classList.remove("src");

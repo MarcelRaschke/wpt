@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class=reftest-wait>
-<title>Shared transitions: old content captures an empty div</title>
-<link rel="help" href="https://github.com/WICG/view-transitions">
+<title>View transitions: old content captures an empty div</title>
+<link rel="help" href="https://drafts.csswg.org/css-view-transitions-1/">
 <link rel="author" href="mailto:vmpstr@chromium.org">
 <link rel="match" href="old-content-is-empty-div-ref.html">
 
@@ -45,6 +45,8 @@ html::view-transition { background: lightpink; }
 <div id=hidden></div>
 
 <script>
+failIfNot(document.startViewTransition, "Missing document.startViewTransition");
+
 async function runTest() {
   empty.style.viewTransitionName = "shared";
   document.startViewTransition(() => {

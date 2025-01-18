@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class=reftest-wait>
-<title>Shared transitions: capture elements with different size capture</title>
-<link rel="help" href="https://github.com/WICG/view-transitions">
+<title>View transitions: capture elements with different size capture</title>
+<link rel="help" href="https://drafts.csswg.org/css-view-transitions-1/">
 <link rel="author" href="mailto:vmpstr@chromium.org">
 <script src="/common/reftest-wait.js"></script>
 <style>
@@ -36,6 +36,8 @@ html::view-transition { background: lightpink; }
 </style>
 <div id=target class=box><div class=inner_overflow>X</div></div>
 <script>
+failIfNot(document.startViewTransition, "Reference missing document.startViewTransition");
+
 async function runTest() {
   document.startViewTransition(() => {
     requestAnimationFrame(() => requestAnimationFrame(takeScreenshot));

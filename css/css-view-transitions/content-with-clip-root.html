@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class=reftest-wait>
-<title>Shared transitions: root element with clip</title>
-<link rel="help" href="https://github.com/WICG/view-transitions">
+<title>View transitions: root element with clip</title>
+<link rel="help" href="https://drafts.csswg.org/css-view-transitions-1/">
 <link rel="author" href="mailto:khushalsagar@chromium.org">
 <link rel="match" href="content-with-clip-root-ref.html">
 
@@ -61,6 +61,8 @@ html::view-transition-new(root) { animation: unset; opacity: 1; height: 100%; }
 <div id=hidden class=hidden></div>
 
 <script>
+failIfNot(document.startViewTransition, "Missing document.startViewTransition");
+
 async function runTest() {
   document.startViewTransition(() => {
     // Add a shared element to ensure its bounds don't expand the root snapshot
